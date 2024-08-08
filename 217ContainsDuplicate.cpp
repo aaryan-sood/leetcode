@@ -1,3 +1,5 @@
+// problem link
+// https://leetcode.com/problems/contains-duplicate/description/
 #include<unordered_map>
 class Solution {
 public:
@@ -15,6 +17,6 @@ public:
             }
         }
         return false;
-        
+
     }
 };
