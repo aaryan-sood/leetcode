@@ -28,7 +28,7 @@ public:
 
 
 // O(log(N))
-// class Solution {
+class Solution {
 public:
     int findPeakElement(vector<int>& nums) {
         if(nums.size() == 1)
