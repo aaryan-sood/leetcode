@@ -1,4 +1,5 @@
 #include <cstddef>
+#include <stack>
 #include <iostream>
 using namespace std;
 
@@ -54,23 +55,33 @@ ListNode * reverseListK(ListNode* head,int k)
 }
 int main()
 {
-    ListNode* head = new ListNode(1);
-    head->next = new ListNode(2);
-    head->next->next = new ListNode(3);
-    head->next->next->next = new ListNode(4);
-    head->next->next->next->next = new ListNode(5);
+    // ListNode* head = new ListNode(1);
+    // head->next = new ListNode(2);
+    // head->next->next = new ListNode(3);
+    // head->next->next->next = new ListNode(4);
+    // head->next->next->next->next = new ListNode(5);
 
-    cout<<"Input K : "<<endl;
-    int k;
-    cin>>k;
-    cout << "Original list : ";
-    printList(head);
+    // cout<<"Input K : "<<endl;
+    // int k;
+    // cin>>k;
+    // cout << "Original list : ";
+    // printList(head);
     // ListNode *revese=reverseList(head);
     // cout<<"Reversed List : ";
     // printList(revese);
 
-    ListNode *reverseK=reverseListK(head,k);
-    cout<<"Reversed k List : ";
-    printList(reverseK);
+    // ListNode *reverseK=reverseListK(head,k);
+    // cout<<"Reversed k List : ";
+    // printList(reverseK);
+
+    stack<char> s;
+    s.push('3');
+    s.push('4');
+    int first=s.top() - '0';
+    s.pop();
+    int second=s.top() - '0';
+    s.pop();
+    int ans=first+second;
+    cout<<ans<<endl;
     return 0;
 }
