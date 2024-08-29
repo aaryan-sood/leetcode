@@ -1,6 +1,8 @@
+#include <bits/stdc++.h>
 #include <cstddef>
-#include <stack>
-#include <iostream>
+#include <functional>
+#include <queue>
+#include <vector>
 using namespace std;
 
 struct ListNode {
@@ -74,14 +76,44 @@ int main()
     // cout<<"Reversed k List : ";
     // printList(reverseK);
 
-    stack<char> s;
-    s.push('3');
-    s.push('4');
-    int first=s.top() - '0';
-    s.pop();
-    int second=s.top() - '0';
-    s.pop();
-    int ans=first+second;
-    cout<<ans<<endl;
+    // stack<char> s;
+    // s.push('3');
+    // s.push('4');
+    // int first=s.top() - '0';
+    // s.pop();
+    // int second=s.top() - '0';
+    // s.pop();
+    // int ans=first+second;
+    // cout<<ans<<endl;
+    // return 0;
+
+    // implemented max heap
+    priority_queue<int> pq;
+
+    int arr[6]={10,2,4,8,6,9};
+    for (int i=0; i<6; i++) {
+        pq.push(arr[i]);
+    }
+
+    while (!pq.empty()) {
+        cout<<pq.top()<<" ";
+        pq.pop();
+    }
+    cout<<endl;
+
+
+    // implementing min heap now
+    cout<<"Min heap : "<<endl;
+    priority_queue<int,vector<int>,greater<int>> gq;
+    for (int i=0; i<6; i++) {
+        gq.push(arr[i]);
+    }
+
+    while (!gq.empty()) {
+        cout<<gq.top()<<" ";
+        gq.pop();
+    }
+    cout<<endl;
     return 0;
+
 }
