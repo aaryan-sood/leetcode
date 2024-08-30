@@ -55,6 +55,36 @@ ListNode * reverseListK(ListNode* head,int k)
     }
     return prev;
 }
+
+string removeDuplicates(string temp)
+{
+    stack<char> st;
+
+    for(int i=0;i<temp.size();i++)
+    {
+        if(!st.empty() && st.top() == temp[i])
+        {
+            st.pop();
+        }
+        else
+        {
+            st.push(temp[i]);
+        }
+    }
+
+    string ans;
+    while(!st.empty())
+    {
+        ans+=st.top();
+        st.pop();
+    }
+    temp="";
+    for(int i=ans.size()-1;i >=0 ;i--)
+    {
+        temp+=ans[i];
+    }
+    return temp;
+}
 int main()
 {
     // ListNode* head = new ListNode(1);
@@ -88,32 +118,46 @@ int main()
     // return 0;
 
     // implemented max heap
-    priority_queue<int> pq;
+    // priority_queue<int> pq;
 
+    // for (int i=0; i<6; i++) {
+    //     pq.push(arr[i]);
+    // }
+
+    // while (!pq.empty()) {
+    //     cout<<pq.top()<<" ";
+    //     pq.pop();
+    // }
+    // cout<<endl;
+
+
+    // // implementing min heap now
+    // cout<<"Min heap : "<<endl;
+    // priority_queue<int,vector<int>,greater<int>> gq;
+    // for (int i=0; i<6; i++) {
+    //     gq.push(arr[i]);
+    // }
+
+    // while (!gq.empty()) {
+    //     cout<<gq.top()<<" ";
+    //     gq.pop();
+    // }
+    // cout<<endl;
+    // return 0;
     int arr[6]={10,2,4,8,6,9};
-    for (int i=0; i<6; i++) {
-        pq.push(arr[i]);
-    }
 
-    while (!pq.empty()) {
-        cout<<pq.top()<<" ";
-        pq.pop();
-    }
-    cout<<endl;
+    string st;
+    getline(cin,st);
 
-
-    // implementing min heap now
-    cout<<"Min heap : "<<endl;
-    priority_queue<int,vector<int>,greater<int>> gq;
-    for (int i=0; i<6; i++) {
-        gq.push(arr[i]);
+    string temp=removeDuplicates(st);
+    if(temp == "")
+    {
+        cout<<"Empty String"<<endl;
     }
-
-    while (!gq.empty()) {
-        cout<<gq.top()<<" ";
-        gq.pop();
+    else
+    {
+        cout<<temp;
     }
-    cout<<endl;
     return 0;
-
+    
 }
