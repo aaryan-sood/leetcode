@@ -144,20 +144,24 @@ int main()
     // }
     // cout<<endl;
     // return 0;
-    int arr[6]={10,2,4,8,6,9};
+    // int arr[6]={10,2,4,8,6,9};
 
-    string st;
-    getline(cin,st);
+    // string st;
+    // getline(cin,st);
 
-    string temp=removeDuplicates(st);
-    if(temp == "")
-    {
-        cout<<"Empty String"<<endl;
-    }
-    else
-    {
-        cout<<temp;
-    }
+    // string temp=removeDuplicates(st);
+    // if(temp == "")
+    // {
+    //     cout<<"Empty String"<<endl;
+    // }
+    // else
+    // {
+    //     cout<<temp;
+    // }
+
+    int temp=1;
+    int ans=temp<<1;
+    cout<<temp<<" "<<ans;
     return 0;
     
 }
