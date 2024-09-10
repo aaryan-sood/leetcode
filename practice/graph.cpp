@@ -1,5 +1,6 @@
 #include<iostream>
 #include<bits/stdc++.h>
+#include<typeinfo>
 using namespace std ;
 int main()
 {
@@ -44,15 +45,18 @@ int main()
     //     cout<<temp[i] - '0'<<" ";
     // }
 
-    char temp='a';
-    cout<<temp-97;
-
-    char ne=temp-97;
-    cout<<ne+97;
+    // char temp='a';
+    // char ne=temp+25;
+    // cout<<ne<<endl;
+    // char ne=temp-97;
+    // cout<<ne+97;
     // vector<int> ans;
 
     // ans.push_back(temp);
-    
+    string temp="hit";
+    cout<<typeid(temp[0]).name()<<endl;
+    temp[0]=temp[0]+10;
+    cout<<temp;
 
     
     return 0;
