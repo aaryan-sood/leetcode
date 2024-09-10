@@ -35,14 +35,23 @@ int main()
     //     cout<<endl;
     // }
 
-    vector<char> temp;
-    temp.push_back('0');
-    temp.push_back('1');
+    // vector<char> temp;
+    // temp.push_back('0');
+    // temp.push_back('1');
 
-    for (int i = 0; i < temp.size(); i++)
-    {
-        cout<<temp[i] - '0'<<" ";
-    }
+    // for (int i = 0; i < temp.size(); i++)
+    // {
+    //     cout<<temp[i] - '0'<<" ";
+    // }
+
+    char temp='a';
+    cout<<temp-97;
+
+    char ne=temp-97;
+    cout<<ne+97;
+    // vector<int> ans;
+
+    // ans.push_back(temp);
     
 
     
