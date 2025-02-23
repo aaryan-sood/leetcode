@@ -2,60 +2,58 @@
 // https://www.geeksforgeeks.org/problems/partitions-with-given-difference/1
 class Solution {
     public:
-      int helper(vector<int> &newArr,vector<vector<int>> &dp,int sum1,int target,int index,int m)
+      int helper(int sum,vector<int> &temp,vector<vector<int>> &dp,int target,int i,int n)
       {
-          if(sum1 == target)
+          if(sum == target)
           {
               return 1;
           }
-          if(sum1 > target || index >= m)
+          if(sum > target || i < 0)
           {
               return 0;
           }
-          if(dp[sum1][index] != -1)
+          if(dp[sum][i] != -1)
           {
-              return dp[sum1][index];
+              return dp[sum][i];
           }
           else
           {
-              int include = helper(newArr,dp,sum1+newArr[index],target,index + 1,m);
-              int exclude = helper(newArr,dp,sum1,target,index + 1,m);
-              return dp[sum1][index]=include + exclude;
+              int left = helper(sum,temp,dp,target,i-1,n);
+              int taken = helper(sum+temp[i],temp,dp,target,i-1,n);
+              return dp[target][i]=left + taken;
           }
       }
       int countPartitions(vector<int>& arr, int d) {
           // Code here
-          vector<int> newArr;
-          int count = 0;
-          int n=arr.size();
+          int zeroCount = 0;
+          vector<int> temp;
           int sum = 0;
-          for(int i=0;i<n;i++)
-          {
-              sum += arr[i];
-          }
-          for(int i=0;i<n;i++)
+          int n=arr.size();
+          for(int i= 0;i<n;i++)
           {
               if(arr[i] == 0)
               {
-                  count++;
+                  zeroCount++;
               }
               else
               {
-                  newArr.push_back(arr[i]);
+                  sum+=arr[i];
+                  temp.push_back(arr[i]);
               }
           }
           if((sum + d) % 2 != 0)
           {
               return 0;
           }
+              int target = (sum + d)/2;
+              int m = temp.size();
+              
+              vector<vector<int>> dp(target+1,vector<int>(m,-1));
+              int ans = helper(0,temp,dp,target,m-1,m);
+              
+              return (1 << zeroCount) * ans;
           
-          int target = (sum + d)/2; 
-          int m = newArr.size();
           
-          vector<vector<int>> dp(target+1,vector<int>(m,-1));
           
-          int ans = helper(newArr,dp,0,target,0,m);
-          
-          return (1 << count) * ans;
       }
   };
