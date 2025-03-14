@@ -33,7 +33,7 @@ class Solution {
           {
               if(arr[i] == 0)
               {
-                  zeroCount++;
+                  zeroCount++; 
               }
               else
               {
