@@ -1,40 +1,32 @@
 // problem link
 // https://leetcode.com/problems/koko-eating-bananas/description/
 class Solution {
-public:
-
-    long isenough(vector<int> piles,int k)
-    {
-        long ans=0;
-        for(int i=0;i<piles.size();i++)
+    public:
+        long long countHours(vector<int> &piles,int mid)
         {
-            ans+=(piles[i]/k);
-            if(piles[i] % k != 0)
+            long long ans = 0;
+            for(int i=0;i<piles.size();i++)
             {
-                ans++;
+                ans+=ceil((double)piles[i]/mid);
             }
+            return ans;
         }
-        return ans;
-    }
-
-    int minEatingSpeed(vector<int>& piles, int h) {
-        int left=1;
-        int right=*max_element(piles.begin(),piles.end());
-        int result=right;
-        while(left <= right)
-        {
-            int mid=left+(right-left)/2;
-            long required=isenough(piles,mid);
-            if(required <= h)
+        int minEatingSpeed(vector<int>& piles, int h) {
+            int start = 1,end = *max_element(piles.begin(),piles.end());
+            long long mid;
+            while(start <= end)
             {
-                result=mid;
-                right=mid-1;
+                mid = (end-start)/2 + start;
+                long long hours = countHours(piles,mid);
+                if(hours <= h)
+                {
+                    end = mid - 1;
+                }
+                else
+                {
+                    start = mid + 1;
+                }
             }
-            else if(required > h)
-            {
-                left=mid+1;
-            }
+            return start;
         }
-        return result;
-    }
-};
+    };
