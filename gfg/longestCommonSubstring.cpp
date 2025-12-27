@@ -1,3 +1,4 @@
+//problem link : https://www.geeksforgeeks.org/problems/longest-common-substring1452/1
 class Solution {
   public:
     int longestCommonSubstr(string& s1, string& s2) {
