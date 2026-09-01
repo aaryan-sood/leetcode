@@ -1,3 +1,4 @@
+// time O(n^2) space O(n^2)
 class Solution {
 public:
     vector<int> findMissingAndRepeatedValues(vector<vector<int>>& grid) {
