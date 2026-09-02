@@ -1,2 +1,2 @@
 ## Objective
-This repositry contains the list of leetcode questions solved during placement preperation
+This repositry contains the list of leetcode questions solved during placement preperation and after that.
