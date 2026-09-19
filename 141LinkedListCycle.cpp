@@ -9,15 +9,50 @@
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
-        ListNode *slow = head, *fast = head;
-        while(fast  &&  fast->next){
-            slow = slow->next;
-            fast = fast->next->next;
-            if(slow == fast){
+        // floyd's cycle finding algorithm
+        if(head == NULL)
+        {
+            return false;
+        }
+        ListNode *slow=head;
+        ListNode *fast=head->next;
+        while(slow != fast)
+        {
+            if(fast == NULL || fast->next == NULL)
+            {
+                return false;
+            }
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        return true;
+    }
+};
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        unordered_set<ListNode *> sample_set;
+        while(head != NULL)
+        {
+            if(sample_set.count(head))
+            {
                 return true;
             }
+            else
+            {
+                sample_set.insert(head);
+            }
+            head=head->next;
         }
         return false;
-
     }
 };
